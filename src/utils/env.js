@@ -6,7 +6,6 @@ export const getEnvVar = (key) => {
   return value;
 };
 PORT;
-
 MONGODB_USER;
 MONGODB_PASSWORD;
 MONGODB_URL;
