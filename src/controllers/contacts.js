@@ -13,7 +13,7 @@ export const getContactByIdController = async (req, res) => {
   const { id } = req.params;
   const data = await contactServices.getContactById(id);
   if (!data) {
-    throw (404, `Contact with id=${id} not found`);
+    throw createError(404, `Contact with id=${id} not found`);
   }
 
   res.json({
@@ -44,4 +44,14 @@ export const patchContactController = async (req, res) => {
     message: 'Successfully upsert contact',
     data: result.data,
   });
+};
+export const deleteContactController = async (req, res) => {
+  const { id } = req.params;
+  const data = await contactServices.deleteContact({ _id: id });
+
+  if (!data) {
+    throw createError(404, `Contact with id=${id} not found`);
+  }
+
+  res.status(204).send();
 };
