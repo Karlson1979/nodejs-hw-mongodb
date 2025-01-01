@@ -14,3 +14,15 @@ export const createContactSchema = Joi.object({
     .valid(...typeList)
     .required(),
 });
+
+export const contactUpdateSchema = Joi.object({
+  name: Joi.string().min(3).max(20),
+  phoneNumber: Joi.string().min(13).max(13).messages({
+    'string.length':
+      'Phone number must be exactly 13 characters in the format +380000000000',
+    'any.required': 'Phone number is required',
+  }),
+  email: Joi.string(),
+  isFavourite: Joi.boolean(),
+  contactType: Joi.string().valid(...typeList),
+});
