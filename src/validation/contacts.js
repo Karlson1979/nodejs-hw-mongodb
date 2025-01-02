@@ -13,6 +13,8 @@ export const createContactSchema = Joi.object({
   contactType: Joi.string()
     .valid(...typeList)
     .required(),
+  createdAt: Joi.date().optional(),
+  updatedAt: Joi.date().optional(),
 });
 
 export const contactUpdateSchema = Joi.object({
@@ -25,4 +27,6 @@ export const contactUpdateSchema = Joi.object({
   email: Joi.string(),
   isFavourite: Joi.boolean(),
   contactType: Joi.string().valid(...typeList),
+  createdAt: Joi.date().optional(),
+  updatedAt: Joi.date().optional(),
 });
