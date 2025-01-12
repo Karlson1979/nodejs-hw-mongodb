@@ -3,17 +3,17 @@ import { handleSaveError, setUpdateSettings } from './hooks.js';
 import { emailRegexp } from '../../constants/users.js';
 const userSchema = new Schema(
   {
-    name: { type: String, required: [true, 'Імʼя обовʼязкове'] },
+    name: { type: String, required: [true, 'Name is required'] },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [emailRegexp, 'Введіть дійсний email'],
+      match: [emailRegexp, 'Enter a valid email'],
     },
     password: {
       type: String,
 
-      required: [true, 'Пароль обов’язковий'],
+      required: [true, 'Password is required'],
     },
   },
   { timestamps: true, versionKey: false },
