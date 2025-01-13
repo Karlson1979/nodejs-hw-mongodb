@@ -16,3 +16,8 @@ export const registerController = async (req, res, next) => {
     next(error);
   }
 };
+
+export const loginController = async (req, res) => {
+  const session = await authServices.login(req.body);
+  console.log(session);
+};
